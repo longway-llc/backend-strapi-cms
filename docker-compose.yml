@@ -3,15 +3,9 @@ services:
   strapi:
     container_name: cms
     image: lwaero/strapi
-    environment:
-      DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_URI: ${DATABASE_URI}
-      DATABASE_NAME: ${DATABASE_NAME}
-      DATABASE_HOST: ${DATABASE_HOST}
-      DATABASE_PORT: ${DATABASE_PORT}
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+    env_file: .env.development
     volumes:
       - ./app:/srv/app
+      - ./app/node_modules
     ports:
       - '1337:1337'
