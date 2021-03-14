@@ -1,11 +1,14 @@
 version: '3'
 services:
   strapi:
-    container_name: cms
-    image: lwaero/strapi
+    container_name: strapi-cms
+    image: lwaero/strapi-dev:v3.5.3
     env_file: .env.development
     volumes:
       - ./app:/srv/app
-      - ./app/node_modules
+      - cms_node_modules:/srv/app/node_modules
     ports:
       - '1337:1337'
+
+volumes:
+  cms_node_modules:
