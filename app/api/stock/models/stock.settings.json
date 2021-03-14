@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stocks",
+  "info": {
+    "name": "Stock"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "consignments": {
+      "via": "stocks",
+      "collection": "consignment",
+      "dominant": true
+    }
+  }
+}

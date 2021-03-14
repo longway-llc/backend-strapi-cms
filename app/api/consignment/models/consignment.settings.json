@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "consignments",
+  "info": {
+    "name": "Consignment",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "productionDate": {
+      "type": "date"
+    },
+    "validUntil": {
+      "type": "date"
+    },
+    "code_1c": {
+      "type": "string"
+    },
+    "balance": {
+      "type": "integer",
+      "default": 0
+    },
+    "stocks": {
+      "collection": "stock",
+      "via": "consignments"
+    },
+    "product": {
+      "model": "product",
+      "via": "consignments"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "groups",
+  "info": {
+    "name": "Group",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "products": {
+      "via": "group",
+      "collection": "product"
+    },
+    "category": {
+      "model": "category",
+      "via": "groups"
+    }
+  }
+}

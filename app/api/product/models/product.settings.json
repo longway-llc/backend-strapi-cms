@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "name": "Product",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "pn": {
+      "type": "string",
+      "required": true
+    },
+    "description_ru": {
+      "type": "string"
+    },
+    "longRead_ru": {
+      "type": "richtext"
+    },
+    "uom": {
+      "type": "string",
+      "required": true
+    },
+    "code_1c_uom": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "mfg": {
+      "type": "string"
+    },
+    "price_ru": {
+      "type": "decimal",
+      "default": 0,
+      "required": true
+    },
+    "price_en": {
+      "type": "decimal",
+      "required": true,
+      "default": 0
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "code_1c": {
+      "type": "string",
+      "required": false
+    },
+    "deleteFromSearch": {
+      "type": "boolean",
+      "default": false
+    },
+    "description_en": {
+      "type": "string"
+    },
+    "longRead_en": {
+      "type": "richtext"
+    },
+    "group": {
+      "model": "group",
+      "via": "products"
+    },
+    "consignments": {
+      "via": "product",
+      "collection": "consignment"
+    }
+  }
+}
