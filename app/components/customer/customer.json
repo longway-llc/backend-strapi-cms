@@ -1,0 +1,17 @@
+{
+  "collectionName": "customer",
+  "info": {
+    "name": "Customer",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "company": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}

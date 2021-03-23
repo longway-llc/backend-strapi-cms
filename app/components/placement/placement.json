@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_placement_placements",
+  "info": {
+    "name": "placement",
+    "icon": "dolly-flatbed",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "balance": {
+      "type": "integer"
+    },
+    "stock": {
+      "model": "stock"
+    }
+  }
+}

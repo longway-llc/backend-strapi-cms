@@ -561,6 +561,15 @@
                 "role": {
                   "type": "string"
                 },
+                "customerInfo": {
+                  "type": "component"
+                },
+                "orders": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },

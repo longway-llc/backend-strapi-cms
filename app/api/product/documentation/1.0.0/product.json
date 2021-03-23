@@ -517,8 +517,6 @@
       "Product": {
         "required": [
           "id",
-          "pn",
-          "uom",
           "price_ru",
           "price_en"
         ],
@@ -667,8 +665,7 @@
             "type": "array",
             "items": {
               "required": [
-                "id",
-                "name"
+                "id"
               ],
               "properties": {
                 "id": {
@@ -686,17 +683,11 @@
                 "code_1c": {
                   "type": "string"
                 },
-                "balance": {
-                  "type": "integer"
-                },
-                "stocks": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "product": {
                   "type": "string"
+                },
+                "placements": {
+                  "type": "component"
                 },
                 "published_at": {
                   "type": "string"
@@ -710,6 +701,43 @@
               }
             }
           },
+          "link": {
+            "type": "uid"
+          },
+          "unitDimension": {
+            "type": "string",
+            "enum": [
+              "unit"
+            ]
+          },
+          "brand": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "products": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "photo": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -718,8 +746,6 @@
       },
       "NewProduct": {
         "required": [
-          "pn",
-          "uom",
           "price_ru",
           "price_en"
         ],
@@ -774,6 +800,18 @@
             "items": {
               "type": "string"
             }
+          },
+          "link": {
+            "type": "uid"
+          },
+          "unitDimension": {
+            "type": "string",
+            "enum": [
+              "unit"
+            ]
+          },
+          "brand": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

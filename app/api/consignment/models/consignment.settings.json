@@ -14,7 +14,7 @@
     "name": {
       "type": "string",
       "unique": false,
-      "required": true
+      "required": false
     },
     "productionDate": {
       "type": "date"
@@ -25,17 +25,14 @@
     "code_1c": {
       "type": "string"
     },
-    "balance": {
-      "type": "integer",
-      "default": 0
-    },
-    "stocks": {
-      "collection": "stock",
-      "via": "consignments"
-    },
     "product": {
-      "model": "product",
-      "via": "consignments"
+      "via": "consignments",
+      "model": "product"
+    },
+    "placements": {
+      "type": "component",
+      "repeatable": true,
+      "component": "placement.placement"
     }
   }
 }

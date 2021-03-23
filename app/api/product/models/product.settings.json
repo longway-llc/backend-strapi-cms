@@ -13,7 +13,7 @@
   "attributes": {
     "pn": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "description_ru": {
       "type": "string"
@@ -23,7 +23,7 @@
     },
     "uom": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "code_1c_uom": {
       "type": "string"
@@ -72,8 +72,22 @@
       "via": "products"
     },
     "consignments": {
-      "via": "product",
-      "collection": "consignment"
+      "collection": "consignment",
+      "via": "product"
+    },
+    "link": {
+      "type": "uid",
+      "targetField": "pn"
+    },
+    "unitDimension": {
+      "type": "enumeration",
+      "enum": [
+        "unit"
+      ]
+    },
+    "brand": {
+      "model": "brand",
+      "via": "products"
     }
   }
 }

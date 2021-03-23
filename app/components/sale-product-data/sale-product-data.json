@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sale_product_data_sale_product_data",
+  "info": {
+    "name": "saleProductData",
+    "icon": "box"
+  },
+  "options": {},
+  "attributes": {
+    "product": {
+      "model": "product"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "sellingPrice": {
+      "type": "integer"
+    }
+  }
+}

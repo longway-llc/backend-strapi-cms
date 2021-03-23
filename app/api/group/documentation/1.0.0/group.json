@@ -530,8 +530,6 @@
             "items": {
               "required": [
                 "id",
-                "pn",
-                "uom",
                 "price_ru",
                 "price_en"
               ],
@@ -590,6 +588,18 @@
                     "type": "string"
                   }
                 },
+                "link": {
+                  "type": "uid"
+                },
+                "unitDimension": {
+                  "type": "string",
+                  "enum": [
+                    "unit"
+                  ]
+                },
+                "brand": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -619,9 +629,6 @@
                 "items": {
                   "type": "string"
                 }
-              },
-              "published_at": {
-                "type": "string"
               },
               "created_by": {
                 "type": "string"

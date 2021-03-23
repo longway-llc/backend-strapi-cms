@@ -12,11 +12,6 @@
   "attributes": {
     "name": {
       "type": "string"
-    },
-    "consignments": {
-      "via": "stocks",
-      "collection": "consignment",
-      "dominant": true
     }
   }
 }

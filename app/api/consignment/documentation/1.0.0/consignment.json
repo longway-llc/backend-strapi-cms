@@ -516,8 +516,7 @@
     "schemas": {
       "Consignment": {
         "required": [
-          "id",
-          "name"
+          "id"
         ],
         "properties": {
           "id": {
@@ -537,43 +536,9 @@
           "code_1c": {
             "type": "string"
           },
-          "balance": {
-            "type": "integer",
-            "default": 0
-          },
-          "stocks": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "consignments": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "product": {
             "required": [
               "id",
-              "pn",
-              "uom",
               "price_ru",
               "price_en"
             ],
@@ -632,6 +597,18 @@
                   "type": "string"
                 }
               },
+              "link": {
+                "type": "uid"
+              },
+              "unitDimension": {
+                "type": "string",
+                "enum": [
+                  "unit"
+                ]
+              },
+              "brand": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -643,6 +620,42 @@
               }
             }
           },
+          "placements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "balance": {
+                  "type": "integer"
+                },
+                "stock": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -650,9 +663,6 @@
         }
       },
       "NewConsignment": {
-        "required": [
-          "name"
-        ],
         "properties": {
           "name": {
             "type": "string"
@@ -668,18 +678,44 @@
           "code_1c": {
             "type": "string"
           },
-          "balance": {
-            "type": "integer",
-            "default": 0
-          },
-          "stocks": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "product": {
             "type": "string"
+          },
+          "placements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "balance": {
+                  "type": "integer"
+                },
+                "stock": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
