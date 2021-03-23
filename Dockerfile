@@ -11,5 +11,6 @@ RUN yarn
 
 COPY /app .
 
+LABEL tag=lwaero/strapi-cms:v3.5.3
 
 CMD ["yarn", "develop"]
