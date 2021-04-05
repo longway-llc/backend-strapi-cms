@@ -1,8 +1,8 @@
-class AuthenticationError extends Error {
+class IdentificationError extends Error {
     constructor(message) {
       super(message);
-      this.name = "AuthenticationError";
+      this.name = "IdentificationError";
     }
   }
 
-module.exports.AuthenticationError = AuthenticationError
+module.exports = IdentificationError
