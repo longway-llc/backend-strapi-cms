@@ -11,9 +11,11 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "mongoose": "^5.12.3",
     "strapi": "3.5.3",
     "strapi-admin": "3.5.3",
     "strapi-connector-mongoose": "3.5.3",
+    "strapi-hook-algolia": "^3.4.0",
     "strapi-plugin-content-manager": "3.5.3",
     "strapi-plugin-content-type-builder": "3.5.3",
     "strapi-plugin-documentation": "3.5.3",
