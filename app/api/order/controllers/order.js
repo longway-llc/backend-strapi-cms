@@ -1,5 +1,5 @@
 'use strict';
-const AuthenticationError = require("../../../utils/CustomError");
+const IdentificationError = require("../../../utils/CustomError");
 
 const {parseMultipartData, sanitizeEntity} = require('strapi-utils');
 /**
@@ -30,7 +30,7 @@ module.exports = {
       console.log(_id)
 
       if (order.user.toString() !== _id.toString()) {
-        AuthenticationError('You can modify only self orders')
+        IdentificationError('You can modify only self orders')
       }
 
       let entity;

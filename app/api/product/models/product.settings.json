@@ -57,10 +57,6 @@
       "type": "string",
       "required": false
     },
-    "deleteFromSearch": {
-      "type": "boolean",
-      "default": false
-    },
     "description_en": {
       "type": "string"
     },
@@ -83,7 +79,8 @@
       "type": "enumeration",
       "enum": [
         "unit"
-      ]
+      ],
+      "default": "unit"
     },
     "brand": {
       "model": "brand",

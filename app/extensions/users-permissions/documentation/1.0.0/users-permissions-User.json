@@ -1293,12 +1293,37 @@
                 "user": {
                   "type": "string"
                 },
+                "invoice": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
                 "updated_by": {
                   "type": "string"
                 }
+              }
+            }
+          },
+          "cart": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "cartItems": {
+                "type": "component"
+              },
+              "user": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           }
@@ -1365,6 +1390,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "cart": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

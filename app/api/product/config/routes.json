@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/products/reference/:id",
+      "handler": "product.findByReference",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/products",
       "handler": "product.create",

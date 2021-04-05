@@ -579,9 +579,6 @@
               "code_1c": {
                 "type": "string"
               },
-              "deleteFromSearch": {
-                "type": "boolean"
-              },
               "description_en": {
                 "type": "string"
               },

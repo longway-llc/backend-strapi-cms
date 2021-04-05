@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "orders",
   "info": {
-    "name": "Order"
+    "name": "Order",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -29,6 +30,10 @@
       "via": "orders",
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "invoice": {
+      "type": "string",
+      "unique": true
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/orders": {
+    "/carts": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Order"
+                    "$ref": "#/components/schemas/Cart"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Order"
+          "Cart"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Order"
+                  "$ref": "#/components/schemas/Cart"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Order"
+          "Cart"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewOrder"
+                "$ref": "#/components/schemas/NewCart"
               }
             }
           }
         }
       }
     },
-    "/orders/count": {
+    "/carts/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Order"
+          "Cart"
         ],
         "parameters": []
       }
     },
-    "/orders/{id}": {
+    "/carts/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Order"
+                  "$ref": "#/components/schemas/Cart"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Order"
+          "Cart"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Order"
+                  "$ref": "#/components/schemas/Cart"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Order"
+          "Cart"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewOrder"
+                "$ref": "#/components/schemas/NewCart"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Order"
+          "Cart"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Order": {
+      "Cart": {
         "required": [
           "id"
         ],
@@ -522,17 +522,7 @@
           "id": {
             "type": "string"
           },
-          "status": {
-            "type": "string",
-            "default": "open",
-            "enum": [
-              "open",
-              "inProgress",
-              "paid",
-              "closed"
-            ]
-          },
-          "saleProductData": {
+          "cartItems": {
             "type": "array",
             "items": {
               "type": "object",
@@ -625,9 +615,6 @@
                   }
                 },
                 "count": {
-                  "type": "integer"
-                },
-                "sellingPrice": {
                   "type": "integer"
                 }
               }
@@ -689,25 +676,12 @@
                 "type": "string"
               }
             }
-          },
-          "invoice": {
-            "type": "string"
           }
         }
       },
-      "NewOrder": {
+      "NewCart": {
         "properties": {
-          "status": {
-            "type": "string",
-            "default": "open",
-            "enum": [
-              "open",
-              "inProgress",
-              "paid",
-              "closed"
-            ]
-          },
-          "saleProductData": {
+          "cartItems": {
             "type": "array",
             "items": {
               "type": "object",
@@ -801,17 +775,11 @@
                 },
                 "count": {
                   "type": "integer"
-                },
-                "sellingPrice": {
-                  "type": "integer"
                 }
               }
             }
           },
           "user": {
-            "type": "string"
-          },
-          "invoice": {
             "type": "string"
           },
           "created_by": {
@@ -826,7 +794,7 @@
   },
   "tags": [
     {
-      "name": "Order"
+      "name": "Cart"
     }
   ]
 }

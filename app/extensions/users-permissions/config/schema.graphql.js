@@ -1,12 +1,13 @@
 module.exports = {
   definition: `
     extend type UsersPermissionsMe {
-      user: UsersPermissionsUser
+      user: UsersPermissionsUser,
     }
   `,
   resolver: {
     UsersPermissionsMe: {
-      user: user => user
+      user: user => user,
     },
-  },
+  }
 }
+
