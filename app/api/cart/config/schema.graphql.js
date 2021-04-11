@@ -8,7 +8,7 @@ module.exports = {
   resolver: {
     Query: {
       countProductsInCart: {
-        _description: 'Обновляет количество продукта в корзине',
+        description: 'Обновляет количество продукта в корзине',
         policies: ['plugins::users-permissions.isAuthenticated'],
         resolverOf: 'application::cart.cart.count',
         resolver: async (_, args, {context}) => {
@@ -16,11 +16,21 @@ module.exports = {
           const cart = await strapi.services.cart.findOne({id: cartId});
           return cart.cartItems.reduce((acc, item) => acc + item.count, 0)
         }
+      },
+      getCart: {
+        description: 'Получает корзину авторизованного пользователя',
+        policies: ['plugins::users-permissions.isAuthenticated'],
+        resolverOf: 'application::cart.cart.findOne',
+        resolver: async (_, args, {context}) => {
+          const {cart: cartId} = context.state.user
+          const cart = await strapi.services.cart.findOne({id: cartId});
+          return cart
+        }
       }
     },
     Mutation: {
       addToCart: {
-        _description: 'Добавляет продукт в корзину пользователя, если он отсутствует, с указанным количеством, иначе добавляет количество к существующему',
+        description: 'Добавляет продукт в корзину пользователя, если он отсутствует, с указанным количеством, иначе добавляет количество к существующему',
         policies: ['plugins::users-permissions.isAuthenticated'],
         resolverOf: 'application::cart.cart.update',
         resolver: async (_, {productId, count}, {context}) => {
@@ -53,7 +63,7 @@ module.exports = {
         }
       },
       changeProductCountInCart: {
-        _description: 'Обновляет количество продукта в корзине',
+        description: 'Обновляет количество продукта в корзине',
         policies: ['plugins::users-permissions.isAuthenticated'],
         resolverOf: 'application::cart.cart.update',
         resolver: async (_, {productId, count}, {context}) => {
@@ -75,7 +85,7 @@ module.exports = {
         }
       },
       deleteProductFromCart: {
-        _description: 'Обновляет количество продукта в корзине',
+        description: 'Обновляет количество продукта в корзине',
         policies: ['plugins::users-permissions.isAuthenticated'],
         resolverOf: 'application::cart.cart.update',
         resolver: async (_, {productId}, {context}) => {
@@ -103,11 +113,12 @@ module.exports = {
   },
   query:`
     countProductsInCart: Int
+    getCart: Cart!
   `,
   mutation: `
-    addToCart (productId: ID!, count: Int): Cart,
-    changeProductCountInCart (productId: ID!, count: Int!): Cart,
-    deleteProductFromCart(productId: ID!): Cart,
+    addToCart (productId: ID!, count: Int): Cart!,
+    changeProductCountInCart (productId: ID!, count: Int!): Cart!,
+    deleteProductFromCart(productId: ID!): Cart!,
   `,
 }
 
