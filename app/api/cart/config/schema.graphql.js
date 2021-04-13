@@ -1,4 +1,4 @@
-const {isDraft, sanitizeEntity} = require('strapi-utils').contentTypes;
+const {sanitizeEntity} = require('strapi-utils');
 
 const mongoose = require('mongoose')
 const SyntheticCart = require('../../../utils/models/SyntheticCart')
@@ -23,8 +23,8 @@ module.exports = {
         resolverOf: 'application::cart.cart.findOne',
         resolver: async (_, args, {context}) => {
           const {cart: cartId} = context.state.user
-          const cart = await strapi.services.cart.findOne({id: cartId});
-          return cart
+          const cart = await strapi.services.cart.findOne({id: cartId})
+          return sanitizeEntity(cart, {model: strapi.models.cart})
         }
       }
     },
@@ -34,12 +34,16 @@ module.exports = {
         policies: ['plugins::users-permissions.isAuthenticated'],
         resolverOf: 'application::cart.cart.update',
         resolver: async (_, {productId, count}, {context}) => {
-          mongoose.connect(process.env.DATABASE_URI, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+          mongoose.connect(process.env.DATABASE_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true
+          })
           const {cart: cartId} = context.state.user
 
           const userCart = await SyntheticCart.findById(cartId)
           const cartItems = await CartItem.find({
-            _id: { $in: userCart.cartItems.map(item => item.ref) }
+            _id: {$in: userCart.cartItems.map(item => item.ref)}
           })
 
           const isExist = cartItems.find(item => item.product.toString() === productId.toString())
@@ -59,7 +63,8 @@ module.exports = {
             await userCart.save()
           }
 
-          return await strapi.services.cart.findOne({id: cartId});
+          const updatedCart = await strapi.services.cart.findOne({id: cartId});
+          return sanitizeEntity(updatedCart, {model: strapi.models.cart})
         }
       },
       changeProductCountInCart: {
@@ -67,12 +72,16 @@ module.exports = {
         policies: ['plugins::users-permissions.isAuthenticated'],
         resolverOf: 'application::cart.cart.update',
         resolver: async (_, {productId, count}, {context}) => {
-          mongoose.connect(process.env.DATABASE_URI, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+          mongoose.connect(process.env.DATABASE_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true
+          })
           const {id: userId, cart: cartId} = context.state.user
 
           const userCart = await SyntheticCart.findById(cartId)
           const cartItems = await CartItem.find({
-            _id: { $in: userCart.cartItems.map(item => item.ref) }
+            _id: {$in: userCart.cartItems.map(item => item.ref)}
           })
 
           const isExist = cartItems.find(item => item.product.toString() === productId.toString())
@@ -81,7 +90,8 @@ module.exports = {
             await isExist.save()
           }
 
-          return await strapi.services.cart.findOne({id: cartId});
+          const cart = await strapi.services.cart.findOne({id: cartId});
+          return sanitizeEntity(cart, {model: strapi.models.cart})
         }
       },
       deleteProductFromCart: {
@@ -89,29 +99,43 @@ module.exports = {
         policies: ['plugins::users-permissions.isAuthenticated'],
         resolverOf: 'application::cart.cart.update',
         resolver: async (_, {productId}, {context}) => {
-          mongoose.connect(process.env.DATABASE_URI, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+          mongoose.connect(process.env.DATABASE_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true
+          })
           const {cart: cartId} = context.state.user
 
           const userCart = await SyntheticCart.findById(cartId)
           const cartItems = await CartItem.find({
-            _id: { $in: userCart.cartItems.map(item => item.ref) }
+            _id: {$in: userCart.cartItems.map(item => item.ref)}
           })
 
           const isExist = cartItems.find(item => item.product.toString() === productId.toString())
           if (isExist) {
             const deletedItem = userCart.cartItems.find(item => item.ref.toString() === isExist._id.toString())
-            console.log(deletedItem)
             userCart.cartItems.pull({_id: deletedItem._id})
             await userCart.save()
             await CartItem.deleteOne({_id: isExist._id})
           }
 
-          return await strapi.services.cart.findOne({id: cartId});
+          const cart = await strapi.services.cart.findOne({id: cartId});
+          return sanitizeEntity(cart, {model: strapi.models.cart})
         }
       },
+      resetCart: {
+        description: 'Очищает корзину',
+        policies: ['plugins::users-permissions.isAuthenticated'],
+        resolverOf: 'application::cart.cart.update',
+        resolver: async (_, args, {context}) => {
+          const {cart: cartId} = context.state.user
+          const updatedCart = await strapi.services.cart.update({id: cartId}, {cartItems: []})
+          return sanitizeEntity(updatedCart, {model: strapi.models.cart})
+        }
+      }
     },
   },
-  query:`
+  query: `
     countProductsInCart: Int
     getCart: Cart!
   `,
@@ -119,6 +143,6 @@ module.exports = {
     addToCart (productId: ID!, count: Int): Cart!,
     changeProductCountInCart (productId: ID!, count: Int!): Cart!,
     deleteProductFromCart(productId: ID!): Cart!,
+    resetCart: Cart!
   `,
 }
-
