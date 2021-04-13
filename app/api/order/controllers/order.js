@@ -1,7 +1,7 @@
 'use strict';
 const IdentificationError = require("../../../utils/CustomError");
 
-const {parseMultipartData, sanitizeEntity} = require('strapi-utils');
+const {sanitizeEntity} = require('strapi-utils');
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
@@ -14,6 +14,15 @@ module.exports = {
    *
    * @return {Object}
    */
+  async find(ctx) {
+    try {
+      const orders = await strapi.services.order.find({user: ctx.user.id})
+      return orders.map(order => sanitizeEntity(order, {model: strapi.models.order}))
+    } catch (e) {
+      return Error(JSON.stringify({message: e.message}))
+    }
+  },
+
 
   async update(ctx) {
     try {
