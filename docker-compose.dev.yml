@@ -5,7 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: lwaero/strapi-dev:v3.5.3
     env_file: .env.development
     volumes:
       - ./app:/srv/app
