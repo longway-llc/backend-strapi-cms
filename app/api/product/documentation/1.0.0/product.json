@@ -803,6 +803,14 @@
               }
             }
           },
+          "sync1cDisplay": {
+            "type": "boolean",
+            "default": true
+          },
+          "deletedFromSearch": {
+            "type": "boolean",
+            "default": false
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -874,6 +882,14 @@
           },
           "brand": {
             "type": "string"
+          },
+          "sync1cDisplay": {
+            "type": "boolean",
+            "default": true
+          },
+          "deletedFromSearch": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",

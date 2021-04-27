@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "04/05/2021 7:03:49 AM"
+    "x-generation-date": "04/27/2021 3:35:05 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6820,6 +6820,12 @@
                 "brand": {
                   "type": "string"
                 },
+                "sync1cDisplay": {
+                  "type": "boolean"
+                },
+                "deletedFromSearch": {
+                  "type": "boolean"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -7009,6 +7015,12 @@
                     "brand": {
                       "type": "string"
                     },
+                    "sync1cDisplay": {
+                      "type": "boolean"
+                    },
+                    "deletedFromSearch": {
+                      "type": "boolean"
+                    },
                     "published_at": {
                       "type": "string"
                     },
@@ -7167,6 +7179,12 @@
                     },
                     "brand": {
                       "type": "string"
+                    },
+                    "sync1cDisplay": {
+                      "type": "boolean"
+                    },
+                    "deletedFromSearch": {
+                      "type": "boolean"
                     },
                     "published_at": {
                       "type": "string"
@@ -7354,6 +7372,12 @@
               },
               "brand": {
                 "type": "string"
+              },
+              "sync1cDisplay": {
+                "type": "boolean"
+              },
+              "deletedFromSearch": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"
@@ -7604,6 +7628,12 @@
                 "brand": {
                   "type": "string"
                 },
+                "sync1cDisplay": {
+                  "type": "boolean"
+                },
+                "deletedFromSearch": {
+                  "type": "boolean"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -7764,6 +7794,12 @@
                     },
                     "brand": {
                       "type": "string"
+                    },
+                    "sync1cDisplay": {
+                      "type": "boolean"
+                    },
+                    "deletedFromSearch": {
+                      "type": "boolean"
                     },
                     "published_at": {
                       "type": "string"
@@ -7939,6 +7975,12 @@
                     },
                     "brand": {
                       "type": "string"
+                    },
+                    "sync1cDisplay": {
+                      "type": "boolean"
+                    },
+                    "deletedFromSearch": {
+                      "type": "boolean"
                     },
                     "published_at": {
                       "type": "string"
@@ -8195,6 +8237,14 @@
               }
             }
           },
+          "sync1cDisplay": {
+            "type": "boolean",
+            "default": true
+          },
+          "deletedFromSearch": {
+            "type": "boolean",
+            "default": false
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -8266,6 +8316,14 @@
           },
           "brand": {
             "type": "string"
+          },
+          "sync1cDisplay": {
+            "type": "boolean",
+            "default": true
+          },
+          "deletedFromSearch": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",

@@ -606,6 +606,12 @@
               "brand": {
                 "type": "string"
               },
+              "sync1cDisplay": {
+                "type": "boolean"
+              },
+              "deletedFromSearch": {
+                "type": "boolean"
+              },
               "published_at": {
                 "type": "string"
               },

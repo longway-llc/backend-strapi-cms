@@ -85,6 +85,14 @@
     "brand": {
       "model": "brand",
       "via": "products"
+    },
+    "sync1cDisplay": {
+      "type": "boolean",
+      "default": true
+    },
+    "deletedFromSearch": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
