@@ -2,7 +2,8 @@
   "collectionName": "components_sale_product_data_sale_product_data",
   "info": {
     "name": "saleProductData",
-    "icon": "box"
+    "icon": "box",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,7 +14,7 @@
       "type": "integer"
     },
     "sellingPrice": {
-      "type": "integer"
+      "type": "decimal"
     }
   }
 }

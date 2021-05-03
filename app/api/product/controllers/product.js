@@ -13,6 +13,11 @@ module.exports = {
     return sanitizeEntity(productsWithSamePN, { model: strapi.models.product });
   },
 
+  async getAvailableIds(ctx) {
+    const showProducts = await strapi.query('product').find({deletedFromSearch: false})
+    return showProducts.map(p => p._id)
+  },
+
   async requestQuote(ctx) {
     const {id} = ctx.params
     const product = await strapi.services.product.findOne({id})
@@ -27,7 +32,7 @@ module.exports = {
     });
 
     await strapi.plugins['email'].services.email.send({
-      to: 'admin@lwaero.net',
+      to: process.env.MANAGER_EMAIL,
       from: 'system@lwaero.net',
       subject: `Запрос КП на ${product.pn} от ${ctx.user.email}`,
       text: `

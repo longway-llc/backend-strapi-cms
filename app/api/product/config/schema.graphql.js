@@ -7,7 +7,6 @@ module.exports = {
         resolverOf: 'application::product.product.requestQuote',
         resolver: async (_, {id}, {context}) => {
           const product = await strapi.services.product.findOne({id})
-          console.log(product)
 
           await strapi.plugins['email'].services.email.send({
             to: context.state.user.email,
@@ -19,7 +18,7 @@ module.exports = {
           })
 
           await strapi.plugins['email'].services.email.send({
-            to: 'admin@lwaero.net',
+            to: process.env.MANAGER_EMAIL,
             from: 'system@lwaero.net',
             subject: `Запрос КП на ${product.pn} от ${context.state.user.email}`,
             text: `

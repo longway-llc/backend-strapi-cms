@@ -65,8 +65,8 @@
       "component": "customer.customer"
     },
     "orders": {
-      "collection": "order",
-      "via": "user"
+      "via": "user",
+      "collection": "order"
     },
     "cart": {
       "model": "cart",

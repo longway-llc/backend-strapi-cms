@@ -35,8 +35,6 @@ module.exports = {
       const _id = decrypted.id;
 
       const order = await strapi.query('order').model.findById(id)
-      console.log(order)
-      console.log(_id)
 
       if (order.user.toString() !== _id.toString()) {
         IdentificationError('You can modify only self orders')

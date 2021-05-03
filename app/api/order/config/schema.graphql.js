@@ -11,7 +11,6 @@ module.exports = {
         resolverOf: 'application::order.order.create',
         resolver: async (_, {region}, {context}) => {
           const {cart: cartId} = context.state.user
-
           const cart = await strapi.services.cart.findOne({id:cartId})
           const totalOrders = await strapi.services.order.count()
           const newOrder = await strapi.services.order.create({
@@ -23,7 +22,6 @@ module.exports = {
               })),
             invoice: `${totalOrders + 1} from ${moment().format("MMM Do YY")}`
           })
-
           return sanitizeEntity(newOrder, { model: strapi.models.order })
         }
       },
