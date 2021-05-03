@@ -25,7 +25,8 @@
     "strapi-plugin-upload": "3.5.3",
     "strapi-plugin-users-permissions": "3.5.3",
     "strapi-provider-email-gmail-2lo": "^3.5.1",
-    "strapi-utils": "3.5.3"
+    "strapi-utils": "3.5.3",
+    "websocket": "^1.0.34"
   },
   "author": {
     "name": "A Strapi developer"
