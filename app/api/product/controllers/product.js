@@ -24,7 +24,7 @@ module.exports = {
 
     await strapi.plugins['email'].services.email.send({
       to: ctx.user.email,
-      from: 'system@lwaero.net',
+      from: 'LWAero Store <system@lwaero.net>',
       subject: `Request on ${product.pn}`,
       text: `
           Hello! You left a request for a cost of ${product.pn} on lwaero.net. Our manager contact with you at shotley time!
@@ -33,7 +33,7 @@ module.exports = {
 
     await strapi.plugins['email'].services.email.send({
       to: process.env.MANAGER_EMAIL,
-      from: 'system@lwaero.net',
+      from: 'LWAero Store <system@lwaero.net>',
       subject: `Запрос КП на ${product.pn} от ${ctx.user.email}`,
       text: `
           Пользователь сайта: ${ctx.user.email} запросил КП на товар ${product.pn} ${product.uom}:
