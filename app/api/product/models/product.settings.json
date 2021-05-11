@@ -93,6 +93,9 @@
     "deletedFromSearch": {
       "type": "boolean",
       "default": false
+    },
+    "expectedDeliveryDate": {
+      "type": "date"
     }
   }
 }

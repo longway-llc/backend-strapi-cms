@@ -619,6 +619,9 @@
                     "deletedFromSearch": {
                       "type": "boolean"
                     },
+                    "expectedDeliveryDate": {
+                      "type": "string"
+                    },
                     "created_by": {
                       "type": "string"
                     },
@@ -796,6 +799,9 @@
                     },
                     "deletedFromSearch": {
                       "type": "boolean"
+                    },
+                    "expectedDeliveryDate": {
+                      "type": "string"
                     },
                     "created_by": {
                       "type": "string"

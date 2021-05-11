@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/03/2021 8:27:14 AM"
+    "x-generation-date": "05/11/2021 9:50:23 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3729,6 +3729,63 @@
         "parameters": []
       }
     },
+    "/products/availableIds": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Product"
+        ],
+        "parameters": []
+      }
+    },
     "/products/{id}": {
       "get": {
         "deprecated": false,
@@ -3995,63 +4052,6 @@
             }
           }
         ]
-      }
-    },
-    "/products/availableIds": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Product"
-        ],
-        "parameters": []
       }
     },
     "/products/quote/{id}": {
@@ -6954,6 +6954,9 @@
                 "deletedFromSearch": {
                   "type": "boolean"
                 },
+                "expectedDeliveryDate": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -7146,6 +7149,9 @@
                     "deletedFromSearch": {
                       "type": "boolean"
                     },
+                    "expectedDeliveryDate": {
+                      "type": "string"
+                    },
                     "created_by": {
                       "type": "string"
                     },
@@ -7307,6 +7313,9 @@
                     },
                     "deletedFromSearch": {
                       "type": "boolean"
+                    },
+                    "expectedDeliveryDate": {
+                      "type": "string"
                     },
                     "created_by": {
                       "type": "string"
@@ -7497,6 +7506,9 @@
               },
               "deletedFromSearch": {
                 "type": "boolean"
+              },
+              "expectedDeliveryDate": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -7750,6 +7762,9 @@
                 "deletedFromSearch": {
                   "type": "boolean"
                 },
+                "expectedDeliveryDate": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -7913,6 +7928,9 @@
                     },
                     "deletedFromSearch": {
                       "type": "boolean"
+                    },
+                    "expectedDeliveryDate": {
+                      "type": "string"
                     },
                     "created_by": {
                       "type": "string"
@@ -8091,6 +8109,9 @@
                     },
                     "deletedFromSearch": {
                       "type": "boolean"
+                    },
+                    "expectedDeliveryDate": {
+                      "type": "string"
                     },
                     "created_by": {
                       "type": "string"
@@ -8351,6 +8372,10 @@
           "deletedFromSearch": {
             "type": "boolean",
             "default": false
+          },
+          "expectedDeliveryDate": {
+            "type": "string",
+            "format": "date"
           }
         }
       },
@@ -8427,6 +8452,10 @@
           "deletedFromSearch": {
             "type": "boolean",
             "default": false
+          },
+          "expectedDeliveryDate": {
+            "type": "string",
+            "format": "date"
           },
           "created_by": {
             "type": "string"
