@@ -37,7 +37,8 @@ module.exports = {
       subject: `Запрос КП на ${product.pn} от ${ctx.user.email}`,
       text: `
           Пользователь сайта: ${ctx.user.email} запросил КП на товар ${product.pn} ${product.uom}:
-          httts://lwaero.net/products/${product.id}
+          httts://lwaero.net/products/${product.id}\n
+          Контактный телефон: ${context.state.user.customerInfo.phone}
         `,
     });
     return 'Request successful created'
