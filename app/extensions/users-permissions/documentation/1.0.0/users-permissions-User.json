@@ -1296,6 +1296,15 @@
                 "invoice": {
                   "type": "string"
                 },
+                "requestedShippingDate": {
+                  "type": "string"
+                },
+                "deliveryInstruction": {
+                  "type": "string"
+                },
+                "poNumber": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },

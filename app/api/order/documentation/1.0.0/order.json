@@ -698,6 +698,16 @@
           },
           "invoice": {
             "type": "string"
+          },
+          "requestedShippingDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "deliveryInstruction": {
+            "type": "string"
+          },
+          "poNumber": {
+            "type": "string"
           }
         }
       },
@@ -824,6 +834,16 @@
             "type": "string"
           },
           "invoice": {
+            "type": "string"
+          },
+          "requestedShippingDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "deliveryInstruction": {
+            "type": "string"
+          },
+          "poNumber": {
             "type": "string"
           },
           "created_by": {

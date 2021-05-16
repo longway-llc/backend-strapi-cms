@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/11/2021 9:50:23 AM"
+    "x-generation-date": "05/14/2021 9:11:18 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8008,6 +8008,16 @@
           },
           "invoice": {
             "type": "string"
+          },
+          "requestedShippingDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "deliveryInstruction": {
+            "type": "string"
+          },
+          "poNumber": {
+            "type": "string"
           }
         }
       },
@@ -8134,6 +8144,16 @@
             "type": "string"
           },
           "invoice": {
+            "type": "string"
+          },
+          "requestedShippingDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "deliveryInstruction": {
+            "type": "string"
+          },
+          "poNumber": {
             "type": "string"
           },
           "created_by": {
@@ -8758,6 +8778,15 @@
                   "type": "string"
                 },
                 "invoice": {
+                  "type": "string"
+                },
+                "requestedShippingDate": {
+                  "type": "string"
+                },
+                "deliveryInstruction": {
+                  "type": "string"
+                },
+                "poNumber": {
                   "type": "string"
                 },
                 "created_by": {
