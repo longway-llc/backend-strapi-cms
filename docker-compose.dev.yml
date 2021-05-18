@@ -11,6 +11,7 @@ services:
       - node_modules:/srv/app/node_modules
     ports:
       - '1337:1337'
+    restart: always
 
 volumes:
   node_modules:
