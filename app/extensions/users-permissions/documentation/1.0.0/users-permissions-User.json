@@ -1335,6 +1335,10 @@
                 "type": "string"
               }
             }
+          },
+          "verifiedByAdmin": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -1402,6 +1406,10 @@
           },
           "cart": {
             "type": "string"
+          },
+          "verifiedByAdmin": {
+            "type": "boolean",
+            "default": false
           },
           "created_by": {
             "type": "string"

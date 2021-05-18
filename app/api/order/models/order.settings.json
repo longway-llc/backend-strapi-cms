@@ -27,9 +27,9 @@
       "component": "sale-product-data.sale-product-data"
     },
     "user": {
+      "via": "orders",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "orders"
+      "model": "user"
     },
     "invoice": {
       "type": "string",

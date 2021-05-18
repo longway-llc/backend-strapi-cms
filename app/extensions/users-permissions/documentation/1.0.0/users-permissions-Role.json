@@ -573,6 +573,9 @@
                 "cart": {
                   "type": "string"
                 },
+                "verifiedByAdmin": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },

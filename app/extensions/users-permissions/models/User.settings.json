@@ -71,6 +71,10 @@
     "cart": {
       "model": "cart",
       "via": "user"
+    },
+    "verifiedByAdmin": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
