@@ -942,6 +942,45 @@
           "expectedDeliveryDate": {
             "type": "string",
             "format": "date"
+          },
+          "availableOnVirtualStock": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "virtual_stock": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "price": {
+                  "type": "number"
+                }
+              }
+            }
           }
         }
       },
@@ -1022,6 +1061,45 @@
           "expectedDeliveryDate": {
             "type": "string",
             "format": "date"
+          },
+          "availableOnVirtualStock": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "virtual_stock": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "price": {
+                  "type": "number"
+                }
+              }
+            }
           },
           "created_by": {
             "type": "string"

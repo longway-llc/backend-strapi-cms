@@ -51,7 +51,8 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "code_1c": {
       "type": "string",
@@ -96,6 +97,11 @@
     },
     "expectedDeliveryDate": {
       "type": "date"
+    },
+    "availableOnVirtualStock": {
+      "type": "component",
+      "repeatable": true,
+      "component": "virtual-stock.available-on-virtual-stock"
     }
   }
 }

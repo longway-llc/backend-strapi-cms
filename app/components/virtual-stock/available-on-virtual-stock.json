@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_virtual_stock_available_on_virtual_stocks",
+  "info": {
+    "name": "availableOnVirtualStock",
+    "icon": "boxes",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "virtual_stock": {
+      "model": "virtual-stock"
+    },
+    "price": {
+      "type": "decimal"
+    }
+  }
+}

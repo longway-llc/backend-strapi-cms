@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/groups": {
+    "/virtual-stocks": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,9 +10,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Group"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -51,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Group"
+          "Virtual-stock"
         ],
         "parameters": [
           {
@@ -201,72 +202,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Group"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Group"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewGroup"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/groups/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
                   "properties": {
-                    "count": {
-                      "type": "integer"
+                    "foo": {
+                      "type": "string"
                     }
                   }
                 }
@@ -306,12 +244,22 @@
         },
         "summary": "",
         "tags": [
-          "Group"
+          "Virtual-stock"
         ],
-        "parameters": []
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVirtual-stock"
+              }
+            }
+          }
+        }
       }
     },
-    "/groups/{id}": {
+    "/virtual-stocks/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +269,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Group"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -359,7 +311,64 @@
         },
         "summary": "",
         "tags": [
-          "Group"
+          "Virtual-stock"
+        ],
+        "parameters": []
+      }
+    },
+    "/virtual-stocks/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Virtual-stock"
         ],
         "parameters": [
           {
@@ -383,7 +392,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Group"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -421,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Group"
+          "Virtual-stock"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewGroup"
+                "$ref": "#/components/schemas/NewVirtual-stock"
               }
             }
           }
@@ -495,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Group"
+          "Virtual-stock"
         ],
         "parameters": [
           {
@@ -514,7 +527,7 @@
   },
   "components": {
     "schemas": {
-      "Group": {
+      "Virtual-stock": {
         "required": [
           "id"
         ],
@@ -525,139 +538,17 @@
           "name": {
             "type": "string"
           },
-          "products": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "price_ru",
-                "price_en"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "pn": {
-                  "type": "string"
-                },
-                "description_ru": {
-                  "type": "string"
-                },
-                "longRead_ru": {
-                  "type": "string"
-                },
-                "uom": {
-                  "type": "string"
-                },
-                "code_1c_uom": {
-                  "type": "string"
-                },
-                "color": {
-                  "type": "string"
-                },
-                "mfg": {
-                  "type": "string"
-                },
-                "price_ru": {
-                  "type": "number"
-                },
-                "price_en": {
-                  "type": "number"
-                },
-                "photo": {
-                  "type": "string"
-                },
-                "code_1c": {
-                  "type": "string"
-                },
-                "description_en": {
-                  "type": "string"
-                },
-                "longRead_en": {
-                  "type": "string"
-                },
-                "group": {
-                  "type": "string"
-                },
-                "consignments": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "link": {
-                  "type": "uid"
-                },
-                "unitDimension": {
-                  "type": "string",
-                  "enum": [
-                    "unit"
-                  ]
-                },
-                "brand": {
-                  "type": "string"
-                },
-                "sync1cDisplay": {
-                  "type": "boolean"
-                },
-                "deletedFromSearch": {
-                  "type": "boolean"
-                },
-                "expectedDeliveryDate": {
-                  "type": "string"
-                },
-                "availableOnVirtualStock": {
-                  "type": "component"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "category": {
-            "required": [
-              "id",
-              "name"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "groups": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+          "address": {
+            "type": "string"
           }
         }
       },
-      "NewGroup": {
+      "NewVirtual-stock": {
         "properties": {
           "name": {
             "type": "string"
           },
-          "products": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "category": {
+          "address": {
             "type": "string"
           },
           "created_by": {
@@ -670,9 +561,5 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Group"
-    }
-  ]
+  "tags": []
 }
