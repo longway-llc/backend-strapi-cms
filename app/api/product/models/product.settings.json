@@ -97,11 +97,6 @@
     },
     "expectedDeliveryDate": {
       "type": "date"
-    },
-    "availableOnVirtualStock": {
-      "type": "component",
-      "repeatable": true,
-      "component": "virtual-stock.available-on-virtual-stock"
     }
   }
 }

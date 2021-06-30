@@ -7,9 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "virtual_stock": {
-      "model": "virtual-stock"
-    },
     "price": {
       "type": "decimal"
     }

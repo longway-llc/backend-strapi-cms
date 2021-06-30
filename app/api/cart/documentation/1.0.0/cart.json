@@ -612,9 +612,6 @@
                     "expectedDeliveryDate": {
                       "type": "string"
                     },
-                    "availableOnVirtualStock": {
-                      "type": "component"
-                    },
                     "created_by": {
                       "type": "string"
                     },
@@ -782,9 +779,6 @@
                     },
                     "expectedDeliveryDate": {
                       "type": "string"
-                    },
-                    "availableOnVirtualStock": {
-                      "type": "component"
                     },
                     "created_by": {
                       "type": "string"

@@ -524,6 +524,13 @@
           },
           "name": {
             "type": "string"
+          },
+          "location": {
+            "type": "string",
+            "enum": [
+              "en",
+              "ru"
+            ]
           }
         }
       },
@@ -531,6 +538,13 @@
         "properties": {
           "name": {
             "type": "string"
+          },
+          "location": {
+            "type": "string",
+            "enum": [
+              "en",
+              "ru"
+            ]
           },
           "created_by": {
             "type": "string"

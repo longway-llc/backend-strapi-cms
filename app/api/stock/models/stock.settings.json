@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "stocks",
   "info": {
-    "name": "Stock"
+    "name": "Stock",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,6 +13,13 @@
   "attributes": {
     "name": {
       "type": "string"
+    },
+    "location": {
+      "type": "enumeration",
+      "enum": [
+        "en",
+        "ru"
+      ]
     }
   }
 }

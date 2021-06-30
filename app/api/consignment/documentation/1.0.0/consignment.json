@@ -615,9 +615,6 @@
               "expectedDeliveryDate": {
                 "type": "string"
               },
-              "availableOnVirtualStock": {
-                "type": "component"
-              },
               "created_by": {
                 "type": "string"
               },
@@ -650,6 +647,13 @@
                     },
                     "name": {
                       "type": "string"
+                    },
+                    "location": {
+                      "type": "string",
+                      "enum": [
+                        "en",
+                        "ru"
+                      ]
                     },
                     "created_by": {
                       "type": "string"
@@ -711,6 +715,13 @@
                     },
                     "name": {
                       "type": "string"
+                    },
+                    "location": {
+                      "type": "string",
+                      "enum": [
+                        "en",
+                        "ru"
+                      ]
                     },
                     "created_by": {
                       "type": "string"
