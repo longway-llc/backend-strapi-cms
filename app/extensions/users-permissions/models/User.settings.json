@@ -75,6 +75,15 @@
     "verifiedByAdmin": {
       "type": "boolean",
       "default": false
+    },
+    "locale": {
+      "type": "enumeration",
+      "enum": [
+        "ru",
+        "en"
+      ],
+      "default": "en",
+      "required": true
     }
   }
 }

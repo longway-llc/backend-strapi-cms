@@ -630,7 +630,8 @@
             "required": [
               "id",
               "username",
-              "email"
+              "email",
+              "locale"
             ],
             "properties": {
               "id": {
@@ -677,6 +678,13 @@
               },
               "verifiedByAdmin": {
                 "type": "boolean"
+              },
+              "locale": {
+                "type": "string",
+                "enum": [
+                  "ru",
+                  "en"
+                ]
               },
               "created_by": {
                 "type": "string"

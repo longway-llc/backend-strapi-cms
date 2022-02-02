@@ -1188,7 +1188,8 @@
         "required": [
           "id",
           "username",
-          "email"
+          "email",
+          "locale"
         ],
         "properties": {
           "id": {
@@ -1339,13 +1340,22 @@
           "verifiedByAdmin": {
             "type": "boolean",
             "default": false
+          },
+          "locale": {
+            "type": "string",
+            "default": "en",
+            "enum": [
+              "ru",
+              "en"
+            ]
           }
         }
       },
       "NewUsersPermissionsUser": {
         "required": [
           "username",
-          "email"
+          "email",
+          "locale"
         ],
         "properties": {
           "username": {
@@ -1410,6 +1420,14 @@
           "verifiedByAdmin": {
             "type": "boolean",
             "default": false
+          },
+          "locale": {
+            "type": "string",
+            "default": "en",
+            "enum": [
+              "ru",
+              "en"
+            ]
           },
           "created_by": {
             "type": "string"
