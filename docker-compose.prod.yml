@@ -2,6 +2,7 @@ version: '3'
 services:
   strapi:
     container_name: cms-store
+    platform: linux/amd64
     image: lwaero/cms-store
     environment:
       - NODE_ENV=production

@@ -2,6 +2,7 @@ version: '3'
 services:
   strapi:
     container_name: strapi-cms
+    platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile
